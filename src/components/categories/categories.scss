@@ -1,0 +1,32 @@
+.home {
+	&-filter {
+		display: flex;
+		gap: 10px;
+
+		&-btn {
+			font-family: var(--font-family);
+			font-weight: 700;
+			font-size: 16px;
+			letter-spacing: 0.01em;
+			text-align: center;
+			color: #2c2c2c;
+			padding: 15px 40px;
+
+			border-radius: 30px;
+			background: #f9f9f9;
+			cursor: pointer;
+
+			&-active {
+				font-family: var(--font-family);
+				font-weight: 700;
+				font-size: 16px;
+				letter-spacing: 0.01em;
+				text-align: center;
+				color: #fff;
+				background: #282828;
+				border-radius: 30px;
+				padding: 15px 40px;
+			}
+		}
+	}
+}

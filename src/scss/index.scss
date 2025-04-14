@@ -1,1 +1,37 @@
 @import './_normalize';
+@import './_fonts';
+@import './_home';
+
+:root {
+	// --font-family: "Proxima Nova", sans-serif;
+}
+
+body {
+	font-family: var(--font-family);
+}
+
+.wrapper {
+	background: #ffdf8c;
+	// height: 100vh;
+	padding: 60px 0;
+
+}
+
+.border--header {
+	border-radius: 10px 10px 0 0;
+	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.03);
+	background: #fff;
+}
+
+.border {
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.03);
+	background: #fff;
+}
+
+.container {
+	max-width: 1500px;
+	padding: 0 70px;
+	margin: 0 auto;
+}
+
