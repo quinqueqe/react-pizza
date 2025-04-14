@@ -1,15 +1,26 @@
 {
-  "name": "my-app",
+  "name": "react-pizza-v2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^2.6.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.14.1",
+    "@types/react": "^19.1.1",
+    "@types/react-dom": "^19.1.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.5.0",
     "react-scripts": "5.0.1",
+    "redux-persist": "^6.0.0",
+    "sass": "^1.86.3",
+    "scss": "^0.2.4",
+    "typescript": "^5.8.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
