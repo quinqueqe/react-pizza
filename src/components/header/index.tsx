@@ -4,9 +4,15 @@ import './header.scss'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectCart } from '../../redux/cart/selectors'
+import { CartItemType } from '../../redux/cart/types'
+
 
 const Header: React.FC = () => {
-	const { totalPrice } = useSelector(selectCart)
+	const { totalPrice, items } = useSelector(selectCart)
+	const totalCount = items.reduce(
+		(sum: number, item: CartItemType) => sum + item.count,
+		0
+	) 
 	return (
 		<div className='header border--header container'>
 			<Link to='' className='header-logo'>
@@ -20,7 +26,7 @@ const Header: React.FC = () => {
 				<button className='header-btns-btn header-btns-price'>
 					{totalPrice} ₽
 				</button>
-				<button className='header-btns-btn header-btns-cart'>0</button>
+				<button className='header-btns-btn header-btns-cart'>{totalCount}</button>
 			</Link>
 		</div>
 	)
