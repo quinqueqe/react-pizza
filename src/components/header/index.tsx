@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectCart } from '../../redux/cart/selectors'
 import { CartItemType } from '../../redux/cart/types'
+import Search from '../search'
 
 
 const Header: React.FC = () => {
@@ -18,10 +19,11 @@ const Header: React.FC = () => {
 			<Link to='' className='header-logo'>
 				<img src={logo} alt='img' />
 				<div>
-					<h3>REACT PIZZA</h3>
+					<h3>REACT PIZZA V2</h3>
 					<h4>самая вкусная пицца во вселенной</h4>
 				</div>
 			</Link>
+			<Search/>
 			<Link to='cart' className='header-btns'>
 				<button className='header-btns-btn header-btns-price'>
 					{totalPrice} ₽

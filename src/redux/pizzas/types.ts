@@ -27,4 +27,5 @@ export type fetchGetPizzasArgs = {
 	activeSort: number
 	sortDb: Sort[]
 	currentPage: number
+	valueInput: string
 }

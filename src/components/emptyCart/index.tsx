@@ -3,7 +3,7 @@ import './emptyCart.scss'
 import emptyImg from '../../assets/emptyCart.png'
 import { Link } from 'react-router-dom'
 
-const EmptyCart = () => {
+const EmptyCart: React.FC = () => {
 	return (
 		<div className='emptyCart border container'>
 			<h5>

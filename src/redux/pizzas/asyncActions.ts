@@ -6,12 +6,14 @@ export const fetchGetPizzas = createAsyncThunk<
 	PizzaBlockType[],
 	fetchGetPizzasArgs
 >('items/fetchGetPizzas', async params => {
-	const { activeCategories, activeSort, sortDb, currentPage } = params
+	const { activeCategories, activeSort, sortDb, currentPage, valueInput } =
+		params
 	const property = sortDb[activeSort].sortProperty
-	const categ = activeCategories > 0 ? activeCategories : ''
+	const categ = activeCategories > 0 ? `&category=${activeCategories}` : ''
 	const page = currentPage
-	const { data } = await axios.get(
-		`https://6759dac0099e3090dbe32341.mockapi.io/items?sortBy=${property}&order=desc&category=${categ}&page=${page}&limit=4`
-	)
+	const search = `&search=${valueInput}`
+	const truf = valueInput.length > 1 ? search : categ
+	const url = `https://6759dac0099e3090dbe32341.mockapi.io/items?sortBy=${property}&order=desc&page=${page}&limit=4`
+	const { data } = await axios.get(`${url}${truf}`)
 	return data
 })

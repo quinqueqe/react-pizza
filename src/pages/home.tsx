@@ -16,13 +16,13 @@ import { selectFilter } from '../redux/filter/selectors'
 const Home: React.FC = () => {
 	const dispatch = useAppDispatch()
 	const { pizzas, status } = useSelector(selectPizzas)
-	const { activeCategories, activeSort, currentPage } = useSelector(selectFilter)
+	const { activeCategories, activeSort, currentPage, valueInput } = useSelector(selectFilter)
 	const skelet = new Array(4).fill(<Skeleton />)
 	React.useEffect(() => {
-		dispatch(fetchGetPizzas({ activeCategories, activeSort, sortDb, currentPage }))
+		dispatch(fetchGetPizzas({ activeCategories, activeSort, sortDb, currentPage, valueInput }))
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [activeCategories, activeSort, currentPage])
+	}, [activeCategories, activeSort, currentPage, valueInput])
 	return (
 		<div className='home border container'>
 			<div className='home-filters'>

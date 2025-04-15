@@ -6,6 +6,7 @@ const initialState: FilterState = {
 	activeSort: 0,
 	popup: false,
 	currentPage: 1,
+	valueInput: '',
 }
 
 export const filterSlice = createSlice({
@@ -24,9 +25,17 @@ export const filterSlice = createSlice({
 		setCurrentPage(state, action: PayloadAction<number>) {
 			state.currentPage = action.payload
 		},
+		setValueInput(state, action: PayloadAction<string>) {
+			state.valueInput = action.payload
+		},
 	},
 })
 
-export const { setActiveCategories, setActiveSort, setPopup, setCurrentPage } =
-	filterSlice.actions
+export const {
+	setActiveCategories,
+	setActiveSort,
+	setPopup,
+	setCurrentPage,
+	setValueInput,
+} = filterSlice.actions
 export default filterSlice.reducer

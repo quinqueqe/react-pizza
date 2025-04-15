@@ -3,6 +3,7 @@ export interface FilterState {
 	activeSort: number
 	popup: boolean
 	currentPage: number
+	valueInput: string
 }
 
 export type Sort = {
