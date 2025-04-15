@@ -1,17 +1,17 @@
 @import './_normalize';
 @import './_home';
 @import './_cart';
+@import './_notFound';
 
 
-// body {
-// 	font-family: var(--font-family);
-// }
+body {
+	background: #ffdf8c;
+	// font-family: var(--font-family);
+}
 
 .wrapper {
-	background: #ffdf8c;
 	// height: 100vh;
-	padding: 60px 0;
-
+	padding: 60px 0
 }
 
 .border--header {
@@ -21,6 +21,7 @@
 }
 
 .border {
+	
 	border-radius: 0 0 10px 10px;
 	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.03);
 	background: #fff;

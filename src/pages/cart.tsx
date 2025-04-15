@@ -11,9 +11,9 @@ const Cart: React.FC = () => {
 	const dispatch = useDispatch()
 	const { items, totalPrice } = useSelector(selectCart)
 	const totalCount = items.reduce(
-			(sum: number, item: CartItemType) => sum + item.count,
-			0
-		) 
+		(sum: number, item: CartItemType) => sum + item.count,
+		0
+	)
 	return (
 		<div className='cart border container'>
 			{totalPrice > 0 ? (

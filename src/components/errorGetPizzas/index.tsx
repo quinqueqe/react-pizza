@@ -1,7 +1,7 @@
 import React from 'react'
 import './errorGetPizzas.scss'
 
-const ErrorItems: React.FC = () => {
+const ErrorGetPizzas: React.FC = () => {
 	return (
 		<div className='errorItems'>
 			<h6>
@@ -12,4 +12,4 @@ const ErrorItems: React.FC = () => {
 	)
 }
 
-export default ErrorItems
+export default ErrorGetPizzas
