@@ -13,8 +13,8 @@ export const pizzasSlice = createSlice({
 	reducers: {},
 	extraReducers: builder => {
 		builder.addCase(fetchGetPizzas.pending, (state) => {
-			// state.pizzas = []
-			// state.status = Status.LOADING
+			state.pizzas = []
+			state.status = Status.LOADING
 		})
 		builder.addCase(fetchGetPizzas.fulfilled, (state, action) => {
 			state.pizzas = action.payload

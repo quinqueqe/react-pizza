@@ -20,7 +20,8 @@ const Home: React.FC = () => {
 	const skelet = new Array(4).fill(<Skeleton />)
 	React.useEffect(() => {
 		dispatch(fetchGetPizzas({ activeCategories, activeSort, sortDb, currentPage }))
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [activeCategories, activeSort, currentPage])
 	return (
 		<div className='home border container'>
