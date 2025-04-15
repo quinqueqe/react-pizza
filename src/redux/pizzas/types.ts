@@ -4,7 +4,7 @@ export type PizzaBlockType = {
 	id: string
 	imageUrl: string
 	title: string
-	price: string
+	price: number
 	types: number[]
 	sizes: number[]
 	// category:

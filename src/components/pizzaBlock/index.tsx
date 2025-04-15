@@ -3,7 +3,7 @@ import plus from '../../assets/plus.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { PizzaBlockType } from '../../redux/pizzas/types'
 import { selectCart } from '../../redux/cart/selectors'
-import { setItems } from '../../redux/cart/slice'
+import { setItems, setTotalPrice } from '../../redux/cart/slice'
 import { CartItemType } from '../../redux/cart/types'
 const PizzaBlock: React.FC<PizzaBlockType> = ({
 	id,
@@ -18,7 +18,7 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({
 	const [activeSize, setActiveSize] = React.useState<number>(0)
 
 	const dispatch = useDispatch()
-	const { items } = useSelector(selectCart)
+	const { items, totalPrice } = useSelector(selectCart)
 	const findItem = items.find(obj => obj.id === id)
 	const count = findItem ? findItem.count : 0
 	const addCart = (id: string) => {
@@ -34,6 +34,7 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({
 			count: 1
 		}
 		dispatch(setItems(item))
+		dispatch(setTotalPrice(totalPrice + price))
 	}
 	return (
 		<li>

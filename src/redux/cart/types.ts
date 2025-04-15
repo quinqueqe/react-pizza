@@ -2,7 +2,7 @@ export type CartItemType = {
 	id: string
 	imageUrl: string
 	title: string
-	price: string
+	price: number
 	type: number
 	size: number
 	count: number
@@ -10,4 +10,5 @@ export type CartItemType = {
 
 export interface CartState {
 	items: CartItemType[]
+	totalPrice: number
 }
