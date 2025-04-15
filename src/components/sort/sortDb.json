@@ -1,0 +1,14 @@
+[
+	{
+		"name": "популярности",
+		"sortProperty": "rating"
+	},
+	{
+		"name": "по цене",
+		"sortProperty": "price"
+	},
+	{
+		"name": "по алфавиту",
+		"sortProperty": "title"
+	}
+]
