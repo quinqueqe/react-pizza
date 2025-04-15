@@ -4,6 +4,7 @@ import Filter from '../components/categories'
 import Sort from '../components/sort'
 import PizzaBlock from '../components/pizzaBlock'
 import Skeleton from '../components/pizzaBlock/skeleton'
+import Pagination from '../components/pagination'
 
 import { selectPizzas } from '../redux/pizzas/selectors'
 import { useSelector } from 'react-redux'
@@ -15,12 +16,12 @@ import { selectFilter } from '../redux/filter/selectors'
 const Home: React.FC = () => {
 	const dispatch = useAppDispatch()
 	const { pizzas, status } = useSelector(selectPizzas)
-	const { activeCategories, activeSort } = useSelector(selectFilter)
-	const skelet = new Array(10).fill(<Skeleton />)
+	const { activeCategories, activeSort, currentPage } = useSelector(selectFilter)
+	const skelet = new Array(4).fill(<Skeleton />)
 	React.useEffect(() => {
-		dispatch(fetchGetPizzas({ activeCategories, activeSort, sortDb }))
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [activeCategories, activeSort])
+		dispatch(fetchGetPizzas({ activeCategories, activeSort, sortDb, currentPage }))
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [activeCategories, activeSort, currentPage])
 	return (
 		<div className='home border container'>
 			<div className='home-filters'>
@@ -41,6 +42,7 @@ const Home: React.FC = () => {
 					)}
 				</ul>
 			</div>
+			<Pagination />
 		</div>
 	)
 }
