@@ -19,7 +19,7 @@ const Home: React.FC = () => {
 	const { pizzas, status } = useSelector(selectPizzas)
 	const { activeCategories, activeSort, currentPage, valueInput } =
 		useSelector(selectFilter)
-	const skelet = new Array(4).fill(<Skeleton />)
+	const skelet = [...Array(4)].map((_, i) => <Skeleton key={i} />)
 	React.useEffect(() => {
 		dispatch(
 			fetchGetPizzas({
@@ -34,20 +34,24 @@ const Home: React.FC = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [activeCategories, activeSort, currentPage, valueInput])
 	return (
-			<div className='home border container '>
+		<div className='home border container '>
 			<div className='home-filters'>
 				<Filter />
 				<Sort />
 			</div>
 			<div className='home-pizzas'>
 				<h1>Все пиццы</h1>
-				{status === 'loading' ? (
+				{currentPage > 1 && valueInput.length > 1 ? (
+					<ErrorGetPizzas />
+				) : currentPage > 1 && activeCategories > 0 ? (
+					<ErrorGetPizzas />
+				) : status === 'loading' ? (
 					<ul>{skelet}</ul>
 				) : status === 'ready' ? (
 					<ul>
 						{pizzas.map((pizza: PizzaBlockType, i: number) => (
-						<PizzaBlock {...pizza} key={i} />
-					))}
+							<PizzaBlock {...pizza} key={i} />
+						))}
 					</ul>
 				) : (
 					<ErrorGetPizzas />

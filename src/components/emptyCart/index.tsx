@@ -1,6 +1,5 @@
 import React from 'react'
 import './emptyCart.scss'
-import emptyImg from '../../assets/emptyCart.png'
 import { Link } from 'react-router-dom'
 
 const EmptyCart: React.FC = () => {
