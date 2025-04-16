@@ -1,12 +1,49 @@
 .fullPizza {
 	display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 
 	&-page {
-	padding: 67px 0;
+		padding: 24px 0;
+	}
 
+	&-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+
+
+		button {
+			border: 1px solid #fe5f1e;
+
+			margin-top: 20px;
+			font-family: var(--font-family);
+			font-weight: 600;
+			font-size: 18px;
+			text-align: center;
+			color: #fff;
+
+			border-radius: 18px;
+			width: 600px;
+			padding: 20px 0;
+
+			background: #fe5f1e;
+			cursor: pointer;
+
+			&:hover {
+				background: #fff;
+				color: #fe5f1e;
+				border: 1px solid #fe5f1e;
+				transition: 0.3s all;
+
+			}
+		}
+
+	}
+
+	&-content {
 		display: flex;
 		align-items: center;
 		justify-content: center;

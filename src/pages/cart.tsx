@@ -3,12 +3,13 @@ import CartItem from '../components/cartItem'
 import EmptyCart from '../components/emptyCart'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectCart } from '../redux/cart/selectors'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { clearCart } from '../redux/cart/slice'
 import { CartItemType } from '../redux/cart/types'
 
 const Cart: React.FC = () => {
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	const { items, totalPrice } = useSelector(selectCart)
 	const totalCount = items.reduce(
 		(sum: number, item: CartItemType) => sum + item.count,
@@ -59,6 +60,7 @@ const Cart: React.FC = () => {
 									)
 								) {
 									dispatch(clearCart())
+									navigate('/')
 								}
 							}}
 							className='cart--header-btn'
