@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectFullPizza } from '../redux/fullPizza/selectors'
-import FullPizzaBlock from '../components/fullPizzaBlock'
-import Skeleton from '../components/fullPizzaBlock/skeleton'
 import { Link } from 'react-router-dom'
+import FullPizzaBlock from '../components/FullPizzaBlock'
+import Skeleton from '../components/FullPizzaBlock/skeleton'
+import { selectFullPizza } from '../redux/fullPizza/selectors'
 import { PizzaBlockType } from '../redux/pizzas/types'
 
 const FullPizza: React.FC = () => {
@@ -21,12 +21,11 @@ const FullPizza: React.FC = () => {
 						))
 					)}
 				</div>
-				<div className="fullPizza-btn">
-				<Link to='/'>
-					<button>Вернуться на главную страницу</button>
-				</Link>
+				<div className='fullPizza-btn'>
+					<Link to='/'>
+						<button>Вернуться на главную страницу</button>
+					</Link>
 				</div>
-				
 			</div>
 		</>
 	)

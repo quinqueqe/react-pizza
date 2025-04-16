@@ -1,5 +1,5 @@
 import React from 'react'
-import './emptyCart.scss'
+import './EmptyCart.scss'
 import { Link } from 'react-router-dom'
 
 const EmptyCart: React.FC = () => {

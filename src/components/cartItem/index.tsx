@@ -1,14 +1,15 @@
 import React from 'react'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
+import { useSelector } from 'react-redux'
 import { CartItemType } from '../../redux/cart/types'
+import { selectCart } from '../../redux/cart/selectors'
 import {
 	countPlus,
 	countMinus,
 	setTotalPrice,
 	deleteItem,
 } from '../../redux/cart/slice'
-import { useSelector } from 'react-redux'
-import { selectCart } from '../../redux/cart/selectors'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
+
 
 const CartItem: React.FC<CartItemType> = ({
 	id,

@@ -1,9 +1,9 @@
 import React from 'react'
-import './categories.scss'
+import './Categories.scss'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { selectFilter } from '../../redux/filter/selectors'
 import { setActiveCategories } from '../../redux/filter/slice'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
 
 const Filter: React.FC = () => {
 	const dispatch = useAppDispatch()

@@ -1,9 +1,9 @@
 import React from 'react'
+import './Sort.scss'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { setActiveSort, setPopup } from '../../redux/filter/slice'
-import './sort.scss'
 import { selectFilter } from '../../redux/filter/selectors'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
 
 const Sort: React.FC = () => {
 	const sortDb = ['популярности', 'по цене', 'по алфавиту']

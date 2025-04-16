@@ -1,12 +1,12 @@
 import React from 'react'
-import './fullPizza.scss'
+import './FullPizzaBlock.scss'
 import plus from '../../assets/plus.svg'
-import { useSelector } from 'react-redux'
-import { PizzaBlockType } from '../../redux/pizzas/types'
-import { selectCart } from '../../redux/cart/selectors'
-import { setItems, setTotalPrice } from '../../redux/cart/slice'
-import { CartItemType } from '../../redux/cart/types'
 import { useAppDispatch } from '../../hooks/useAppDispatch'
+import { useSelector } from 'react-redux'
+import { setItems, setTotalPrice } from '../../redux/cart/slice'
+import { selectCart } from '../../redux/cart/selectors'
+import { PizzaBlockType } from '../../redux/pizzas/types'
+import { CartItemType } from '../../redux/cart/types'
 const FullPizzaBlock: React.FC<PizzaBlockType> = ({
 	id,
 	imageUrl,

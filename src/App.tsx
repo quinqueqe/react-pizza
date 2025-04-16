@@ -1,11 +1,11 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
-import Home from './pages/home'
-import Cart from './pages/cart'
-import FullPizza from './pages/fullPizza'
-import NotFound from './pages/notFound'
-import Order from './pages/order'
+import Home from './pages/Home'
+import Cart from './pages/Cart'
+import FullPizza from './pages/FullPizza'
+import NotFound from './pages/NotFound'
+import Order from './pages/Order'
 
 const App: React.FC = () => {
 	return (

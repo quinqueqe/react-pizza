@@ -1,9 +1,9 @@
 import React from 'react'
-import './search.scss'
+import './Search.scss'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { selectFilter } from '../../redux/filter/selectors'
 import { setValueInput } from '../../redux/filter/slice'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
 
 const Search: React.FC = () => {
 	const dispatch = useAppDispatch()

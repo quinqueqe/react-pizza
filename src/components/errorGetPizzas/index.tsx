@@ -1,5 +1,5 @@
 import React from 'react'
-import './errorGetPizzas.scss'
+import './ErrorGetPizzas.scss'
 
 const ErrorGetPizzas: React.FC = () => {
 	return (

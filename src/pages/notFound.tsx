@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const NotFound: React.FC = () => {
-  return (
-	<div className='container notFound-cont border'>
+	return (
+		<div className='container notFound-cont border'>
 			<div className='notFound'>
 				<span>😕</span>
 				<h1>Ничего не найдено</h1>
@@ -13,7 +13,7 @@ const NotFound: React.FC = () => {
 				</Link>
 			</div>
 		</div>
-  )
+	)
 }
 
 export default NotFound

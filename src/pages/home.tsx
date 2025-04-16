@@ -1,15 +1,15 @@
-import React from 'react'
-import Filter from '../components/categories'
-import ErrorGetPizzas from '../components/errorGetPizzas'
-import Pagination from '../components/pagination'
-import PizzaBlock from '../components/pizzaBlock'
-import Skeleton from '../components/pizzaBlock/skeleton'
-import Sort from '../components/sort'
-import sortDb from '../components/sort/sortDb.json'
-
 import qs from 'qs'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
+import Filter from '../components/Categories'
+import ErrorGetPizzas from '../components/ErrorGetPizzas'
+import Pagination from '../components/Pagination'
+import PizzaBlock from '../components/PizzaBlock'
+import Skeleton from '../components/PizzaBlock/skeleton'
+import Sort from '../components/Sort'
+import sortDb from '../components/Sort/sortDb.json'
+
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../hooks/useAppDispatch'
 import { selectFilter } from '../redux/filter/selectors'
 import { fetchGetPizzas } from '../redux/pizzas/asyncAction'
@@ -36,13 +36,12 @@ const Home: React.FC = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [activeCategories, activeSort, currentPage, valueInput])
 
-
 	React.useEffect(() => {
 		const queryString = qs.stringify({
 			sortBy: sortDb[activeSort].sortProperty,
 			category: activeCategories,
 			currentPage,
-			valueInput
+			valueInput,
 		})
 		navigate(`?${queryString}`)
 		console.log(window.location.search)

@@ -1,11 +1,11 @@
 import React from 'react'
+import './Header.scss'
 import logo from '../../assets/logo.svg'
-import './header.scss'
-import { Link, useLocation } from 'react-router-dom'
+import Search from '../Search'
 import { useSelector } from 'react-redux'
+import { Link, useLocation } from 'react-router-dom'
 import { selectCart } from '../../redux/cart/selectors'
 import { CartItemType } from '../../redux/cart/types'
-import Search from '../search'
 
 const Header: React.FC = () => {
 	const { totalPrice, items } = useSelector(selectCart)
@@ -23,15 +23,21 @@ const Header: React.FC = () => {
 					<h4>самая вкусная пицца во вселенной</h4>
 				</div>
 			</Link>
-			{pathname !== '/cart' ? (<><Search />
-			<Link to='cart' className='header-btns'>
-				<button className='header-btns-btn header-btns-price'>
-					{totalPrice} ₽
-				</button>
-				<button className='header-btns-btn header-btns-cart'>
-					{totalCount}
-				</button>
-			</Link></>) : <></> }
+			{pathname !== '/cart' ? (
+				<>
+					<Search />
+					<Link to='cart' className='header-btns'>
+						<button className='header-btns-btn header-btns-price'>
+							{totalPrice} ₽
+						</button>
+						<button className='header-btns-btn header-btns-cart'>
+							{totalCount}
+						</button>
+					</Link>
+				</>
+			) : (
+				<></>
+			)}
 		</div>
 	)
 }
