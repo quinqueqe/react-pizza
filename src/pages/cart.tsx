@@ -61,7 +61,7 @@ const Cart: React.FC = () => {
 									)
 								) {
 									dispatch(clearCart())
-									navigate('/')
+									navigate('/react-pizza')
 								}
 							}}
 							className='cart--header-btn'

@@ -10,7 +10,6 @@ import {
 	deleteItem,
 } from '../../redux/cart/slice'
 
-
 const CartItem: React.FC<CartItemType> = ({
 	id,
 	imageUrl,
@@ -44,7 +43,11 @@ const CartItem: React.FC<CartItemType> = ({
 							dispatch(setTotalPrice(totalPrice - price))
 						}
 					}}
-					className='cart-item-counters-minus'
+					className={
+						count <= 1
+							? 'cart-item-counters-btn-disabled'
+							: 'cart-item-counters-btn'
+					}
 				>
 					<svg
 						width='10'
@@ -61,6 +64,7 @@ const CartItem: React.FC<CartItemType> = ({
 				</button>
 				<p>{count}</p>
 				<button
+					className='cart-item-counters-btn'
 					onClick={() => {
 						dispatch(countPlus(id))
 						dispatch(setTotalPrice(totalPrice + price))

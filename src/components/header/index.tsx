@@ -19,11 +19,11 @@ const Header: React.FC = () => {
 			<Link to='/react-pizza' className='header-logo'>
 				<img src={logo} alt='img' />
 				<div>
-					<h3>REACT PIZZA V2</h3>
+					<h3>REACT PIZZA</h3>
 					<h4>самая вкусная пицца во вселенной</h4>
 				</div>
 			</Link>
-			{pathname !== '/cart' && pathname !== '/order' ? (
+			{pathname !== '/react-pizza/cart' && pathname !== '/react-pizza/order' ? (
 				<>
 					<Search />
 					<Link to='cart' className='header-btns'>

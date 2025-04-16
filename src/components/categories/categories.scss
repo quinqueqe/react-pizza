@@ -11,10 +11,22 @@
 			text-align: center;
 			color: #2c2c2c;
 			padding: 15px 40px;
+			// -- 2
+			// border: 1px solid #f9f9f9;
 
 			border-radius: 30px;
 			background: #f9f9f9;
 			cursor: pointer;
+
+			&:hover {
+				// -- 2
+				// border: 1px solid #464646;
+				background: #282828;
+				color: #f9f9f9;
+
+
+				transition: 0.3s all;
+			}
 
 			&-active {
 				font-family: var(--font-family);

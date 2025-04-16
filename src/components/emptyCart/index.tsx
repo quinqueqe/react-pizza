@@ -154,9 +154,11 @@ const EmptyCart: React.FC = () => {
 					stroke-linejoin='round'
 				/>
 			</svg>
-			<Link to='/react-pizza'>
-				<button>Вернуться назад</button>
-			</Link>
+			<div className='emptyCard-btn'>
+				<Link to='/react-pizza'>
+					<button>Вернуться назад</button>
+				</Link>
+			</div>
 		</div>
 	)
 }

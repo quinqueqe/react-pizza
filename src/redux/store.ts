@@ -10,7 +10,7 @@ import fullPizza from './fullPizza/slice'
 const persistConfig = {
 	key: 'root', // Ключ для сохранения состояния
 	storage, // Хранилище (localStorage по умолчанию)
-	// whitelist: ['cart', 'fullPizza', 'pizzas']
+	whitelist: ['']
 }
 
 const rootReducer = combineReducers({

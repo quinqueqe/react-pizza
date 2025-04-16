@@ -1,9 +1,9 @@
 import React from 'react'
-import './Categories.scss'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { selectFilter } from '../../redux/filter/selectors'
 import { setActiveCategories } from '../../redux/filter/slice'
+import './Categories.scss'
 
 const Filter: React.FC = () => {
 	const dispatch = useAppDispatch()
@@ -22,7 +22,9 @@ const Filter: React.FC = () => {
 				<button
 					onClick={() => dispatch(setActiveCategories(i))}
 					className={
-						activeCategories === i ? 'home-filter-btn-active' : 'home-filter-btn'
+						activeCategories === i
+							? 'home-filter-btn-active'
+							: 'home-filter-btn'
 					}
 					key={i}
 				>

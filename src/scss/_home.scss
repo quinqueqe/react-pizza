@@ -1,12 +1,10 @@
 .home {
-	
-	
 	&-filters {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 40px 0;
-		
+
 	}
 
 	&-pizzas {
@@ -117,6 +115,7 @@
 			button {
 				display: flex;
 				align-items: center;
+				justify-content: center;
 				gap: 10px;
 				font-family: var(--font-family);
 				font-weight: 700;
@@ -124,7 +123,10 @@
 				color: #eb5a1e;
 				border: 1px solid #eb5a1e;
 				border-radius: 30px;
+				width: 180px;
+				height: 60px;
 				padding: 14px 18px 14px 17px;
+
 
 				span {
 					font-family: var(--font-family);
@@ -134,6 +136,29 @@
 					padding: 6px 10px;
 					border-radius: 100%;
 					background-color: #eb5a1e;
+				}
+
+				&:active {
+					animation: shake 0.3s;
+				}
+
+				&:hover {
+					transition: 0.3s all;
+					border: 1px solid #eb5a1e;
+					background: #eb5a1e;
+					color: #fff;
+
+					svg {
+						path {
+							fill: #fff;
+						}
+					}
+
+					span {
+						background: #fff;
+						color: #eb5a1e;
+					}
+
 				}
 			}
 		}

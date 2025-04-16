@@ -64,5 +64,9 @@
 			transition: 0.3s all;
 
 		}
+
+		&:active {
+			animation: shake 0.3s;
+		}
 	}
 }

@@ -35,6 +35,15 @@
 			font-weight: 400;
 			font-size: 16px;
 			color: #b6b6b6;
+
+			&:hover {
+				transition: 0.3s all;
+				color: #464646;
+
+				svg {
+					fill: #464646;
+				}
+			}
 		}
 	}
 
@@ -51,7 +60,7 @@
 		justify-content: space-between;
 		align-items: center;
 
-		
+
 
 
 		b {
@@ -72,7 +81,7 @@
 			&-div {
 
 
-				width: 280px ;
+				width: 280px;
 			}
 
 			img {
@@ -104,7 +113,7 @@
 
 
 
-			button {
+			&-btn {
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -112,6 +121,42 @@
 				height: 32px;
 				border-radius: 100%;
 				border: 2px solid #fe5f1e;
+
+				&-disabled {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 32px;
+					height: 32px;
+					border-radius: 100%;
+					border: 2px solid #464646;
+					opacity: 0.6;
+
+
+					svg {
+						path {
+							fill: #464646;
+							opacity: 0.6;
+
+						}
+					}
+				}
+
+				&:hover {
+					border: 2px solid #fe5f1e;
+					background: #fe5f1e;
+					transition: 0.3s all;
+
+					svg {
+						path {
+							fill: #ffff;
+						}
+					}
+				}
+
+				&:active {
+					animation: shake 0.3s;
+				}
 			}
 
 			p {
@@ -131,6 +176,24 @@
 				width: 32px;
 				height: 32px;
 				border: 2px solid #d7d7d7;
+
+				&:hover {
+					border: 2px solid #464646;
+
+					transition: 0.3s all;
+					color: #464646;
+
+					svg {
+						path {
+							fill: #464646;
+						}
+					}
+				}
+
+				&:active {
+					animation: shake 0.3s;
+				}
+
 			}
 		}
 	}
@@ -188,6 +251,22 @@
 
 			padding: 18px 0;
 
+			&:hover {
+				border: 1px solid #464646;
+				transition: 0.3s all;
+
+				p {
+					color: #464646;
+
+				}
+
+				svg {
+					path {
+						stroke: #464646;
+					}
+				}
+			}
+
 			p {
 				font-family: var(--font-family);
 				font-weight: 400;
@@ -216,8 +295,16 @@
 			border-radius: 30px;
 			width: 100%;
 			max-width: 211px;
+			border: 1px solid #fe5f1e;
 
 			background: #fe5f1e;
+
+
+			&:hover {
+				transition: 0.3s all;
+				background: #ffff;
+				color: #fe5f1e;
+			}
 		}
 	}
 }
