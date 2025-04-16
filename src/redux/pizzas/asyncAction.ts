@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { fetchGetPizzasArgs, PizzaBlockType } from './types'
+import { FetchGetPizzasArgs, PizzaBlockType } from './types'
+import { FetchGetFullPizzaArgs } from '../fullPizza/types'
 
 export const fetchGetPizzas = createAsyncThunk<
 	PizzaBlockType[],
-	fetchGetPizzasArgs
+	FetchGetPizzasArgs
 >('items/fetchGetPizzas', async params => {
 	const { activeCategories, activeSort, sortDb, currentPage, valueInput } =
 		params

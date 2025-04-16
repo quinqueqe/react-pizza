@@ -1,0 +1,41 @@
+.fullPizza {
+	display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+	&-page {
+	padding: 67px 0;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	&-img {
+		margin-left: 20px;
+
+		width: 350px;
+		height: 350px;
+	}
+
+	&-order {
+		display: flex;
+		gap: 130px;
+	}
+
+	&-title {
+		font-family: var(--font-family);
+		font-weight: 800;
+		font-size: 20px;
+		letter-spacing: 0.01em;
+		padding-bottom: 20px;
+		color: #000;
+	}
+
+	&-menu {
+		width: 300px;
+
+	}
+}

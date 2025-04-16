@@ -1,14 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import './fullPizza.scss'
 import plus from '../../assets/plus.svg'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
+import { useSelector, useDispatch } from 'react-redux'
+import { PizzaBlockType } from '../../redux/pizzas/types'
 import { selectCart } from '../../redux/cart/selectors'
 import { setItems, setTotalPrice } from '../../redux/cart/slice'
 import { CartItemType } from '../../redux/cart/types'
-import { fetchGetFullPizza } from '../../redux/fullPizza/asyncAction'
-import { PizzaBlockType } from '../../redux/pizzas/types'
-const PizzaBlock: React.FC<PizzaBlockType> = ({
+const FullPizzaBlock: React.FC<PizzaBlockType> = ({
 	id,
 	imageUrl,
 	title,
@@ -20,7 +18,7 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({
 	const [activeType, setActiveType] = React.useState<number>(0)
 	const [activeSize, setActiveSize] = React.useState<number>(0)
 
-	const dispatch = useAppDispatch()
+	const dispatch = useDispatch()
 	const { items, totalPrice } = useSelector(selectCart)
 	const findItem = items.find(obj => obj.id === id)
 	const count = findItem ? findItem.count : 0
@@ -39,17 +37,11 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({
 		dispatch(setItems(item))
 		dispatch(setTotalPrice(totalPrice + price))
 	}
-
-	const pushFullPizza = (id: string) => {
-		dispatch(fetchGetFullPizza({ id }))
-	}
 	return (
-		<li>
-			<Link onClick={() => pushFullPizza(id)} to={`pizza/${id}`}>
-				<img src={imageUrl} alt='img' />
-				<h5>{title}</h5>
-			</Link>
-			<div className='home-pizzas-settings'>
+		<li className='fullPizza'>
+			<img className='fullPizza-img' src={imageUrl} alt='img' />
+			<h5 className='fullPizza-title'>{title}</h5>
+			<div className='fullPizza-menu home-pizzas-settings'>
 				<div className='home-pizzas-settings-top'>
 					{types.map((item, i: number) => (
 						<button
@@ -81,7 +73,7 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({
 					))}
 				</div>
 			</div>
-			<div className='home-pizzas-order'>
+			<div className='fullPizza-order home-pizzas-order'>
 				<h3>от {price} ₽</h3>
 				<button onClick={() => addCart(id)}>
 					<img src={plus} alt='img' />
@@ -92,4 +84,4 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({
 	)
 }
 
-export default PizzaBlock
+export default FullPizzaBlock

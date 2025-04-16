@@ -22,7 +22,7 @@ export enum Status {
 	ERROR = 'error',
 }
 
-export type fetchGetPizzasArgs = {
+export type FetchGetPizzasArgs = {
 	activeCategories: number
 	activeSort: number
 	sortDb: Sort[]

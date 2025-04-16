@@ -1,18 +1,18 @@
 import React from 'react'
-import sortDb from '../components/sort/sortDb.json'
 import Filter from '../components/categories'
-import Sort from '../components/sort'
+import ErrorGetPizzas from '../components/errorGetPizzas'
+import Pagination from '../components/pagination'
 import PizzaBlock from '../components/pizzaBlock'
 import Skeleton from '../components/pizzaBlock/skeleton'
-import Pagination from '../components/pagination'
-import ErrorGetPizzas from '../components/errorGetPizzas'
+import Sort from '../components/sort'
+import sortDb from '../components/sort/sortDb.json'
 
-import { selectPizzas } from '../redux/pizzas/selectors'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from '../hooks/useAppDispatch'
-import { fetchGetPizzas } from '../redux/pizzas/asyncActions'
-import { PizzaBlockType } from '../redux/pizzas/types'
 import { selectFilter } from '../redux/filter/selectors'
+import { fetchGetPizzas } from '../redux/pizzas/asyncAction'
+import { selectPizzas } from '../redux/pizzas/selectors'
+import { PizzaBlockType } from '../redux/pizzas/types'
 
 const Home: React.FC = () => {
 	const dispatch = useAppDispatch()
