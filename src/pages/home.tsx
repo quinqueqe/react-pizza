@@ -44,7 +44,6 @@ const Home: React.FC = () => {
 			valueInput,
 		})
 		navigate(`?${queryString}`)
-		console.log(window.location.search)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [activeCategories, activeSort, currentPage, valueInput])
 	return (

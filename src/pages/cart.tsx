@@ -1,7 +1,7 @@
 import React from 'react'
 import CartItem from '../components/CartItem'
 import EmptyCart from '../components/EmptyCart'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { clearCart } from '../redux/cart/slice'
@@ -145,7 +145,11 @@ const Cart: React.FC = () => {
 							</svg>
 							<p>Вернуться назад</p>
 						</Link>
-						<Link className='cart--btns-order' to='/order'>
+						<Link
+							onClick={() => dispatch(clearCart())}
+							className='cart--btns-order'
+							to='/order'
+						>
 							Оплатить сейчас
 						</Link>
 					</div>

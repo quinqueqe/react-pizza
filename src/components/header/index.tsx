@@ -23,7 +23,7 @@ const Header: React.FC = () => {
 					<h4>самая вкусная пицца во вселенной</h4>
 				</div>
 			</Link>
-			{pathname !== '/cart' ? (
+			{pathname !== '/cart' && pathname !== '/order' ? (
 				<>
 					<Search />
 					<Link to='cart' className='header-btns'>

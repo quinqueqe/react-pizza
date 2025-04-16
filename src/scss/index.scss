@@ -2,6 +2,7 @@
 @import './_home';
 @import './_cart';
 @import './_notFound';
+@import './_order';
 
 
 body {
@@ -21,7 +22,6 @@ body {
 }
 
 .border {
-	
 	border-radius: 0 0 10px 10px;
 	box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.03);
 	background: #fff;
