@@ -7,6 +7,8 @@ import Skeleton from '../components/pizzaBlock/skeleton'
 import Sort from '../components/sort'
 import sortDb from '../components/sort/sortDb.json'
 
+import qs from 'qs'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from '../hooks/useAppDispatch'
 import { selectFilter } from '../redux/filter/selectors'
@@ -15,6 +17,7 @@ import { selectPizzas } from '../redux/pizzas/selectors'
 import { PizzaBlockType } from '../redux/pizzas/types'
 
 const Home: React.FC = () => {
+	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
 	const { pizzas, status } = useSelector(selectPizzas)
 	const { activeCategories, activeSort, currentPage, valueInput } =
@@ -30,7 +33,19 @@ const Home: React.FC = () => {
 				valueInput,
 			})
 		)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [activeCategories, activeSort, currentPage, valueInput])
 
+
+	React.useEffect(() => {
+		const queryString = qs.stringify({
+			sortBy: sortDb[activeSort].sortProperty,
+			category: activeCategories,
+			currentPage,
+			valueInput
+		})
+		navigate(`?${queryString}`)
+		console.log(window.location.search)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [activeCategories, activeSort, currentPage, valueInput])
 	return (
