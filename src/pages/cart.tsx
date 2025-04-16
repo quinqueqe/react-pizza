@@ -1,7 +1,7 @@
 import React from 'react'
 import CartItem from '../components/CartItem'
 import EmptyCart from '../components/EmptyCart'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { clearCart } from '../redux/cart/slice'
@@ -120,7 +120,7 @@ const Cart: React.FC = () => {
 					</div>
 					<div className='cart--btns'>
 						<Link
-							to='/'
+							to='/react-pizza'
 							onClick={() =>
 								window.scrollTo({
 									top: 0,
@@ -148,7 +148,7 @@ const Cart: React.FC = () => {
 						<Link
 							onClick={() => dispatch(clearCart())}
 							className='cart--btns-order'
-							to='/order'
+							to='/react-pizza/order'
 						>
 							Оплатить сейчас
 						</Link>

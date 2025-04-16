@@ -12,7 +12,7 @@ const Order: React.FC = () => {
 					<h2 className='empty__content-title'>Заказ оформлен!</h2>
 					<h5 className='empty__content-desc'>{`Заказ #${random} скоро будет передан`}</h5>
 					<h5 className='empty__content-desc'>курьерской доставке'</h5>
-					<Link to='/' className='empty-btn'>
+					<Link to='/react-pizza' className='empty-btn'>
 						Вернуться назад
 					</Link>
 				</div>
