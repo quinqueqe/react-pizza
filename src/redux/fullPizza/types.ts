@@ -8,9 +8,9 @@ export interface FullPizzaState {
 export type FetchGetFullPizzaArgs = {
 	id: string
 }
- 
-export enum FullPizzaStatus  {
+
+export enum FullPizzaStatus {
 	LOADING = 'loading',
-	SUCCESS = 'ready', 
-	ERROR = 'error'
+	SUCCESS = 'ready',
+	ERROR = 'error',
 }

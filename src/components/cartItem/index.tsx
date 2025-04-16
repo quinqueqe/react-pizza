@@ -6,8 +6,9 @@ import {
 	setTotalPrice,
 	deleteItem,
 } from '../../redux/cart/slice'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { selectCart } from '../../redux/cart/selectors'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
 
 const CartItem: React.FC<CartItemType> = ({
 	id,
@@ -18,7 +19,7 @@ const CartItem: React.FC<CartItemType> = ({
 	size,
 	count,
 }) => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const { totalPrice } = useSelector(selectCart)
 	const settingDb = ['тонкое', 'традиционное']
 	const priceItem = price * count

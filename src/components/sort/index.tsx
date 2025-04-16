@@ -1,12 +1,13 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { setActiveSort, setPopup } from '../../redux/filter/slice'
 import './sort.scss'
 import { selectFilter } from '../../redux/filter/selectors'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
 
 const Sort: React.FC = () => {
 	const sortDb = ['популярности', 'по цене', 'по алфавиту']
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const { activeSort, popup } = useSelector(selectFilter)
 	const changeActiveSort = (i: number) => {
 		dispatch(setActiveSort(i))
@@ -39,7 +40,7 @@ const Sort: React.FC = () => {
 				</span>
 			</h4>
 			<div className={popup ? 'home-sort-popup' : 'home-sort-popup-close'}>
-				{sortDb.map((item, i: number) => (
+				{sortDb.map((item: string, i: number) => (
 					<button
 						onClick={() => changeActiveSort(i)}
 						className={

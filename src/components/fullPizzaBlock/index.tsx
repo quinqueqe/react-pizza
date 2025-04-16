@@ -1,11 +1,12 @@
 import React from 'react'
 import './fullPizza.scss'
 import plus from '../../assets/plus.svg'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { PizzaBlockType } from '../../redux/pizzas/types'
 import { selectCart } from '../../redux/cart/selectors'
 import { setItems, setTotalPrice } from '../../redux/cart/slice'
 import { CartItemType } from '../../redux/cart/types'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
 const FullPizzaBlock: React.FC<PizzaBlockType> = ({
 	id,
 	imageUrl,
@@ -18,7 +19,7 @@ const FullPizzaBlock: React.FC<PizzaBlockType> = ({
 	const [activeType, setActiveType] = React.useState<number>(0)
 	const [activeSize, setActiveSize] = React.useState<number>(0)
 
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const { items, totalPrice } = useSelector(selectCart)
 	const findItem = items.find(obj => obj.id === id)
 	const count = findItem ? findItem.count : 0
@@ -43,7 +44,7 @@ const FullPizzaBlock: React.FC<PizzaBlockType> = ({
 			<h5 className='fullPizza-title'>{title}</h5>
 			<div className='fullPizza-menu home-pizzas-settings'>
 				<div className='home-pizzas-settings-top'>
-					{types.map((item, i: number) => (
+					{types.map((item: number, i: number) => (
 						<button
 							onClick={() => setActiveType(i)}
 							key={i}
@@ -58,7 +59,7 @@ const FullPizzaBlock: React.FC<PizzaBlockType> = ({
 					))}
 				</div>
 				<div className='home-pizzas-settings-bot'>
-					{sizes.map((item, i: number) => (
+					{sizes.map((item: number, i: number) => (
 						<button
 							onClick={() => setActiveSize(i)}
 							key={i}

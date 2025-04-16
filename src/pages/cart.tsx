@@ -1,14 +1,15 @@
 import React from 'react'
 import CartItem from '../components/cartItem'
 import EmptyCart from '../components/emptyCart'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { selectCart } from '../redux/cart/selectors'
 import { Link, useNavigate } from 'react-router-dom'
 import { clearCart } from '../redux/cart/slice'
 import { CartItemType } from '../redux/cart/types'
+import { useAppDispatch } from '../hooks/useAppDispatch'
 
 const Cart: React.FC = () => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 	const { items, totalPrice } = useSelector(selectCart)
 	const totalCount = items.reduce(
@@ -105,7 +106,7 @@ const Cart: React.FC = () => {
 						</button>
 					</div>
 					<ul className='cart--cards'>
-						{items.map((item, i: number) => (
+						{items.map((item: CartItemType, i: number) => (
 							<CartItem {...item} key={i} />
 						))}
 					</ul>

@@ -51,7 +51,7 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({
 			</Link>
 			<div className='home-pizzas-settings'>
 				<div className='home-pizzas-settings-top'>
-					{types.map((item, i: number) => (
+					{types.map((item: number, i: number) => (
 						<button
 							onClick={() => setActiveType(i)}
 							key={i}
@@ -66,7 +66,7 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({
 					))}
 				</div>
 				<div className='home-pizzas-settings-bot'>
-					{sizes.map((item, i: number) => (
+					{sizes.map((item: number, i: number) => (
 						<button
 							onClick={() => setActiveSize(i)}
 							key={i}

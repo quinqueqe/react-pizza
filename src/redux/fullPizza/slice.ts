@@ -13,7 +13,7 @@ export const fullPizzaSlice = createSlice({
 	reducers: {
 	},
 	extraReducers: builder => {
-		builder.addCase(fetchGetFullPizza.pending, (state, action) => {
+		builder.addCase(fetchGetFullPizza.pending, (state) => {
 			state.pizza = []
 			state.status = FullPizzaStatus.LOADING
 		})
@@ -21,7 +21,7 @@ export const fullPizzaSlice = createSlice({
 			state.pizza = action.payload
 			state.status = FullPizzaStatus.SUCCESS
 		})
-		builder.addCase(fetchGetFullPizza.rejected, (state, action) => {
+		builder.addCase(fetchGetFullPizza.rejected, (state) => {
 			state.pizza = []
 			state.status = FullPizzaStatus.ERROR
 		})

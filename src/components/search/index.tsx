@@ -1,11 +1,12 @@
 import React from 'react'
 import './search.scss'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { selectFilter } from '../../redux/filter/selectors'
 import { setValueInput } from '../../redux/filter/slice'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
 
 const Search: React.FC = () => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const { valueInput } = useSelector(selectFilter)
 	const inputRef = React.useRef<HTMLInputElement>(null)
 	const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -4,6 +4,7 @@ import { selectFullPizza } from '../redux/fullPizza/selectors'
 import FullPizzaBlock from '../components/fullPizzaBlock'
 import Skeleton from '../components/fullPizzaBlock/skeleton'
 import { Link } from 'react-router-dom'
+import { PizzaBlockType } from '../redux/pizzas/types'
 
 const FullPizza: React.FC = () => {
 	const { pizza, status } = useSelector(selectFullPizza)
@@ -15,7 +16,7 @@ const FullPizza: React.FC = () => {
 					{status === 'loading' ? (
 						<Skeleton />
 					) : (
-						getPizza.map((value, i: number) => (
+						getPizza.map((value: PizzaBlockType, i: number) => (
 							<FullPizzaBlock {...value} key={i} />
 						))
 					)}

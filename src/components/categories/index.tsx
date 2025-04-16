@@ -1,11 +1,12 @@
 import React from 'react'
 import './categories.scss'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { selectFilter } from '../../redux/filter/selectors'
 import { setActiveCategories } from '../../redux/filter/slice'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
 
 const Filter: React.FC = () => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const { activeCategories } = useSelector(selectFilter)
 	const categoriesDb = [
 		'Все',
@@ -17,7 +18,7 @@ const Filter: React.FC = () => {
 	]
 	return (
 		<div className='home-filter'>
-			{categoriesDb.map((item, i: number) => (
+			{categoriesDb.map((item: string, i: number) => (
 				<button
 					onClick={() => dispatch(setActiveCategories(i))}
 					className={
