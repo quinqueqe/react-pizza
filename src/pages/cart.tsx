@@ -2,16 +2,13 @@ import React from 'react'
 import CartItem from '../components/CartItem'
 import EmptyCart from '../components/EmptyCart'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../hooks/useAppDispatch'
-import { useSelector } from 'react-redux'
-import { clearCart } from '../redux/cart/slice'
-import { selectCart } from '../redux/cart/selectors'
-import { CartItemType } from '../redux/cart/types'
+import { useCart, CartItemType } from '../store'
 
 const Cart: React.FC = () => {
-	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
-	const { items, totalPrice } = useSelector(selectCart)
+	const items = useCart(state => state.items)
+	const totalPrice = useCart(state => state.totalPrice)
+	const clearCart = useCart(state => state.clearCart)
 	const totalCount = items.reduce(
 		(sum: number, item: CartItemType) => sum + item.count,
 		0
@@ -60,8 +57,8 @@ const Cart: React.FC = () => {
 										'Вы действительно хотите полностью очистить корзину?'
 									)
 								) {
-									dispatch(clearCart())
-									navigate('/react-pizza')
+									clearCart()
+									navigate('/')
 								}
 							}}
 							className='cart--header-btn'
@@ -120,7 +117,7 @@ const Cart: React.FC = () => {
 					</div>
 					<div className='cart--btns'>
 						<Link
-							to='/react-pizza'
+							to='/'
 							onClick={() =>
 								window.scrollTo({
 									top: 0,
@@ -146,9 +143,9 @@ const Cart: React.FC = () => {
 							<p>Вернуться назад</p>
 						</Link>
 						<Link
-							onClick={() => dispatch(clearCart())}
+							onClick={() => clearCart()}
 							className='cart--btns-order'
-							to='/react-pizza/order'
+							to='/'
 						>
 							Оплатить сейчас
 						</Link>

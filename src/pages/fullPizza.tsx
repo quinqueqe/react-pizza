@@ -1,13 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import FullPizzaBlock from '../components/FullPizzaBlock'
 import Skeleton from '../components/FullPizzaBlock/skeleton'
-import { selectFullPizza } from '../redux/fullPizza/selectors'
-import { PizzaBlockType } from '../redux/pizzas/types'
+import { PizzaBlockType, useFullPizza } from '../store'
 
 const FullPizza: React.FC = () => {
-	const { pizza, status } = useSelector(selectFullPizza)
+	const pizza = useFullPizza((state) => state.pizza)
+	const status = useFullPizza((state) => state.status)
 	const getPizza = new Array(1).fill(pizza)
 	return (
 		<>
@@ -22,7 +21,7 @@ const FullPizza: React.FC = () => {
 					)}
 				</div>
 				<div className='fullPizza-btn'>
-					<Link to='/react-pizza'>
+					<Link to='/'>
 						<button>Вернуться на главную страницу</button>
 					</Link>
 				</div>

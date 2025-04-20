@@ -1,14 +1,5 @@
 import React from 'react'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
-import { useSelector } from 'react-redux'
-import { CartItemType } from '../../redux/cart/types'
-import { selectCart } from '../../redux/cart/selectors'
-import {
-	countPlus,
-	countMinus,
-	setTotalPrice,
-	deleteItem,
-} from '../../redux/cart/slice'
+import { CartItemType, useCart } from '../../store'
 
 const CartItem: React.FC<CartItemType> = ({
 	id,
@@ -19,8 +10,11 @@ const CartItem: React.FC<CartItemType> = ({
 	size,
 	count,
 }) => {
-	const dispatch = useAppDispatch()
-	const { totalPrice } = useSelector(selectCart)
+	const totalPrice = useCart(state => state.totalPrice)
+	const { setTotalPrice, countPlus, countMinus, deleteItem } = useCart(
+		state => state
+	)
+
 	const settingDb = ['тонкое', 'традиционное']
 	const priceItem = price * count
 
@@ -38,9 +32,9 @@ const CartItem: React.FC<CartItemType> = ({
 			<div className='cart-item-counters'>
 				<button
 					onClick={() => {
-						dispatch(countMinus(id))
+						countMinus(id)
 						if (count > 1) {
-							dispatch(setTotalPrice(totalPrice - price))
+							setTotalPrice(totalPrice - price)
 						}
 					}}
 					className={
@@ -66,8 +60,8 @@ const CartItem: React.FC<CartItemType> = ({
 				<button
 					className='cart-item-counters-btn'
 					onClick={() => {
-						dispatch(countPlus(id))
-						dispatch(setTotalPrice(totalPrice + price))
+						countPlus(id)
+						setTotalPrice(totalPrice + price)
 					}}
 				>
 					<svg
@@ -93,7 +87,7 @@ const CartItem: React.FC<CartItemType> = ({
 								'Вы действительно хотите удалить этот товар из корзины?'
 							)
 						) {
-							dispatch(deleteItem(id))
+							deleteItem(id)
 						}
 					}}
 				>

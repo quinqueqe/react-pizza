@@ -2,13 +2,12 @@ import React from 'react'
 import './Header.scss'
 import logo from '../../assets/logo.svg'
 import Search from '../Search'
-import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
-import { selectCart } from '../../redux/cart/selectors'
-import { CartItemType } from '../../redux/cart/types'
+import { CartItemType, useCart } from '../../store'
 
 const Header: React.FC = () => {
-	const { totalPrice, items } = useSelector(selectCart)
+	const items = useCart(state => state.items)
+	const totalPrice = useCart(state => state.totalPrice)
 	const { pathname } = useLocation()
 	const totalCount = items.reduce(
 		(sum: number, item: CartItemType) => sum + item.count,
@@ -16,14 +15,14 @@ const Header: React.FC = () => {
 	)
 	return (
 		<div className='header border--header container'>
-			<Link to='/react-pizza' className='header-logo'>
+			<Link to='/' className='header-logo'>
 				<img src={logo} alt='img' />
 				<div>
 					<h3>REACT PIZZA</h3>
 					<h4>самая вкусная пицца во вселенной</h4>
 				</div>
 			</Link>
-			{pathname !== '/react-pizza/cart' && pathname !== '/react-pizza/order' ? (
+			{pathname !== '/cart' && pathname !== '/order' ? (
 				<>
 					<Search />
 					<Link to='cart' className='header-btns'>

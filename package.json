@@ -1,7 +1,6 @@
 {
 	"name": "react-pizza",
 	"version": "0.1.0",
-	"homepage": "https://quinqueqe.github.io/react-pizza",
 	"private": true,
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.6.1",
@@ -26,11 +25,10 @@
 		"sass": "^1.86.3",
 		"scss": "^0.2.4",
 		"typescript": "^5.8.3",
-		"web-vitals": "^2.1.4"
+		"web-vitals": "^2.1.4",
+		"zustand": "^5.0.3"
 	},
 	"scripts": {
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",

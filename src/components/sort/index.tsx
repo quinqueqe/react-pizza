@@ -1,26 +1,21 @@
 import React from 'react'
 import './Sort.scss'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
-import { useSelector } from 'react-redux'
-import { setActiveSort, setPopup } from '../../redux/filter/slice'
-import { selectFilter } from '../../redux/filter/selectors'
+import { useFilter } from '../../store'
 
 const Sort: React.FC = () => {
 	const sortDb = ['популярности', 'по цене', 'по алфавиту']
-	const dispatch = useAppDispatch()
-	const { activeSort, popup } = useSelector(selectFilter)
+	const { activeSort, popup, setActiveSort, setPopup } = useFilter(state => state)
 	const changeActiveSort = (i: number) => {
-		dispatch(setActiveSort(i))
-		dispatch(setPopup(false))
+		setActiveSort(i)
+		setPopup(false)
 	}
-
 
 	// закрытие popup окна вне клика области окна
 	const sortRef = React.useRef<HTMLDivElement>(null)
 	React.useEffect(() => {
 		const handleClickOutside = (e: MouseEvent) => {
 			if (sortRef.current && !sortRef.current.contains(e.target as Node)) {
-				dispatch(setPopup(false))
+				setPopup(false)
 			}
 		}
 
@@ -35,7 +30,7 @@ const Sort: React.FC = () => {
 		<div ref={sortRef} className='home-sort'>
 			<h4>
 				Сортировка по:
-				<span onClick={() => dispatch(setPopup(!popup))}>
+				<span onClick={() => setPopup(!popup)}>
 					{sortDb[activeSort]}
 				</span>
 			</h4>

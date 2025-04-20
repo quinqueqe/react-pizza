@@ -8,31 +8,26 @@ import Skeleton from '../components/PizzaBlock/skeleton'
 import Sort from '../components/Sort'
 import sortDb from '../components/Sort/sortDb.json'
 
-import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../hooks/useAppDispatch'
-import { selectFilter } from '../redux/filter/selectors'
-import { fetchGetPizzas } from '../redux/pizzas/asyncAction'
-import { selectPizzas } from '../redux/pizzas/selectors'
-import { PizzaBlockType } from '../redux/pizzas/types'
+import { PizzaBlockType, useFilter, usePizzas } from '../store'
 
 const Home: React.FC = () => {
 	const navigate = useNavigate()
-	const dispatch = useAppDispatch()
-	const { pizzas, status } = useSelector(selectPizzas)
-	const { activeCategories, activeSort, currentPage, valueInput } =
-		useSelector(selectFilter)
+	const { pizzas, status, fetchGetPizzas } = usePizzas(state => state)
+
+	const activeCategories = useFilter(state => state.activeCategories)
+	const activeSort = useFilter(state => state.activeSort)
+	const valueInput = useFilter(state => state.valueInput)
+	const currentPage = useFilter(state => state.currentPage)
 	const skelet = [...Array(4)].map((_, i) => <Skeleton key={i} />)
 	React.useEffect(() => {
-		dispatch(
-			fetchGetPizzas({
-				activeCategories,
-				activeSort,
-				sortDb,
-				currentPage,
-				valueInput,
-			})
-		)
+		fetchGetPizzas({
+			activeCategories,
+			activeSort,
+			sortDb,
+			currentPage,
+			valueInput,
+		})
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [activeCategories, activeSort, currentPage, valueInput])
 

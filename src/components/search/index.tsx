@@ -1,19 +1,17 @@
 import React from 'react'
 import './Search.scss'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
-import { useSelector } from 'react-redux'
-import { selectFilter } from '../../redux/filter/selectors'
-import { setValueInput } from '../../redux/filter/slice'
+import { useFilter } from '../../store'
 
 const Search: React.FC = () => {
-	const dispatch = useAppDispatch()
-	const { valueInput } = useSelector(selectFilter)
+	const valueInput = useFilter((state) => state.valueInput)
+	const setValueInput = useFilter((state) => state.setValueInput)
+	
 	const inputRef = React.useRef<HTMLInputElement>(null)
 	const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-		dispatch(setValueInput(e.currentTarget.value))
+		setValueInput(e.currentTarget.value)
 	}
 	const onClearValue = () => {
-		dispatch(setValueInput(''))
+		setValueInput('')
 		inputRef.current?.focus()
 	}
 	return (

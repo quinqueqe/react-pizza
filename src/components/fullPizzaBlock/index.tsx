@@ -1,11 +1,6 @@
 import React from 'react'
 import './FullPizzaBlock.scss'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
-import { useSelector } from 'react-redux'
-import { setItems, setTotalPrice } from '../../redux/cart/slice'
-import { selectCart } from '../../redux/cart/selectors'
-import { PizzaBlockType } from '../../redux/pizzas/types'
-import { CartItemType } from '../../redux/cart/types'
+import { PizzaBlockType, CartItemType, useCart } from '../../store'
 const FullPizzaBlock: React.FC<PizzaBlockType> = ({
 	id,
 	imageUrl,
@@ -17,9 +12,10 @@ const FullPizzaBlock: React.FC<PizzaBlockType> = ({
 	const settingDb = ['тонкое', 'традиционное']
 	const [activeType, setActiveType] = React.useState<number>(0)
 	const [activeSize, setActiveSize] = React.useState<number>(0)
-
-	const dispatch = useAppDispatch()
-	const { items, totalPrice } = useSelector(selectCart)
+	
+	const items = useCart(state => state.items)
+	const totalPrice = useCart(state => state.totalPrice)
+	const { setItems, setTotalPrice } = useCart(state => state)
 	const findItem = items.find(obj => obj.id === id)
 	const count = findItem ? findItem.count : ''
 	const addCart = (id: string) => {
@@ -34,8 +30,8 @@ const FullPizzaBlock: React.FC<PizzaBlockType> = ({
 			size,
 			count: 1,
 		}
-		dispatch(setItems(item))
-		dispatch(setTotalPrice(totalPrice + price))
+		setItems(item)
+		setTotalPrice(totalPrice + price)
 	}
 	return (
 		<li className='fullPizza'>
