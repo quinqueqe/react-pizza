@@ -15,14 +15,14 @@ const Header: React.FC = () => {
 	)
 	return (
 		<div className='header border--header container'>
-			<Link to='/' className='header-logo'>
+			<Link to='/react-pizza' className='header-logo'>
 				<img src={logo} alt='img' />
 				<div>
 					<h3>REACT PIZZA</h3>
 					<h4>самая вкусная пицца во вселенной</h4>
 				</div>
 			</Link>
-			{pathname !== '/cart' && pathname !== '/order' ? (
+			{pathname !== '/react-pizza/cart' && pathname !== '/react-pizza/order' ? (
 				<>
 					<Search />
 					<Link to='cart' className='header-btns'>

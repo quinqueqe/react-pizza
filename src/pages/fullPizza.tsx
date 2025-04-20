@@ -21,7 +21,7 @@ const FullPizza: React.FC = () => {
 					)}
 				</div>
 				<div className='fullPizza-btn'>
-					<Link to='/'>
+					<Link to='/react-pizza'>
 						<button>Вернуться на главную страницу</button>
 					</Link>
 				</div>

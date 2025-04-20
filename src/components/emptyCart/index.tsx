@@ -155,7 +155,7 @@ const EmptyCart: React.FC = () => {
 				/>
 			</svg>
 			<div className='emptyCard-btn'>
-				<Link to='/'>
+				<Link to='/react-pizza'>
 					<button>Вернуться назад</button>
 				</Link>
 			</div>

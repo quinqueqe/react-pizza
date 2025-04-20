@@ -58,7 +58,7 @@ const Cart: React.FC = () => {
 									)
 								) {
 									clearCart()
-									navigate('/')
+									navigate('/react-pizza')
 								}
 							}}
 							className='cart--header-btn'
@@ -117,7 +117,7 @@ const Cart: React.FC = () => {
 					</div>
 					<div className='cart--btns'>
 						<Link
-							to='/'
+							to='/react-pizza'
 							onClick={() =>
 								window.scrollTo({
 									top: 0,
@@ -145,7 +145,7 @@ const Cart: React.FC = () => {
 						<Link
 							onClick={() => clearCart()}
 							className='cart--btns-order'
-							to='/'
+							to='/react-pizza/order'
 						>
 							Оплатить сейчас
 						</Link>
